@@ -1,15 +1,15 @@
 clc;clear
 % Define la matriz A
-A = [-3 0;0 -3];
+A = [0 2;-2 0];
 B = [0;1]
 % Define la variable simbólica s y t
 syms s t tau;
 
 % Define la función de entrada u(t) (por ejemplo, u(t) = 1
-u = sin(t);
+u = cos(t);
 
 % Define las condiciones iniciales x(0)
-x0 = [-1;1]; % Por ejemplo, x(0) = [1; 0]
+x0 = [1;-1]; % Por ejemplo, x(0) = [1; 0]
 
 % Calcula la matriz inversa (sI - A)^(-1)
 sI = s * eye(size(A));

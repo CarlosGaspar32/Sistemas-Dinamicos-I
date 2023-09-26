@@ -1,6 +1,6 @@
-%
+% Resuelve e^At mediante laplace
 % Define la matriz A
-A = [0, 1; -2, -1];
+A = [0 1 0;0 0 1;-2 -5 -3];
 
 % Define la variable simbólica s y t
 syms s t;
