@@ -1,8 +1,8 @@
-A = [0 2;-2 0];
+A = [1 1;-1 -1]
 polinomio = poly(A)
 
 coeff = polinomio; % Coeficientes del polinomio en orden descendente de potencias de s
-roots_of_polynomial = roots(coeff); % Calcula las raíces del polinomio
+roots_of_polynomial = roots(coeff) % Calcula las raíces del polinomio
 
 % Grafica las raíces en el plano complejo
 figure;
