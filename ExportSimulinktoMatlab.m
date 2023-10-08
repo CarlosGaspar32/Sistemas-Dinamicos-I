@@ -1,6 +1,6 @@
 clc;close all;
 %Si exportan de simulink con el nombre Grafica y tipo array ya les grafica solo cambien titulos y legendas xd
-%% Experimento 3
+%% GRAFICAS
 %save('Exp3.mat','out');
 %load('Exp3.mat')
 
