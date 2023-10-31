@@ -1,0 +1,46 @@
+%% Realización
+G1 = tf([10],[1 -5]);
+G2 = tf([1],[1 0]);
+H = tf([1],[1 1]);
+
+Gf = feedback(G1*G2,H);
+
+% Función Transferencia a forma canonica controlable
+
+[A B C D] = tf2ss(Gf.Numerator{:},Gf.Denominator{:})
+
+A = [0 1 0;0 0 1;-1 -2 -3];
+
+B = [];
+C = [];
+%% Retroalimentacion de estados
+
+cc = ctrb(A,B)
+%cc = [A A*B A*A*B]
+rangoCC = rank(cc)
+
+if rangoCC == length(A)
+    disp('Es controlable');
+else
+    disp('No es controlable');
+end
+
+pcc = [-3 -2+2j -2-2j];
+K = acker(A,B,pcc)
+
+%% observabilidad
+oo = obsv(A,C);
+%oo = [C;C*A;C*A*A]
+rangoOO = rank(oo);
+
+if rangoOO == length(A)
+    disp('Es observable');
+else
+    disp('No es observable');
+end
+
+%Calculo de Ke
+poo = 50*[-3 -2+2i -2-2i];
+Ke = acker(A',C',poo);
+Ke = Ke'
+

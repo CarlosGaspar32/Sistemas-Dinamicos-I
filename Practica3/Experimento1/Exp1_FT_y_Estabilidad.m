@@ -4,8 +4,8 @@ a = tf(1,[1 1]);
 b = tf(1,[1 0]);
 
 c=feedback(a,b);
-G1 = a*c
-r1 = roots(G1.Denominator{:})
+G1 = a*c;
+r1 = roots(G1.Denominator{:});
 figure(1)
 step(G1,10)
 %% Inciso b
