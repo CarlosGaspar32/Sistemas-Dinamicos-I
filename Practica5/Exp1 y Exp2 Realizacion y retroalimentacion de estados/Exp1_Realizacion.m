@@ -9,10 +9,9 @@ Gf = feedback(G1*G2,H);
 
 [A B C D] = tf2ss(Gf.Numerator{:},Gf.Denominator{:})
 
-A = [0 1 0;0 0 1;-1 -2 -3];
-
-B = [];
-C = [];
+% A = [0 1 0;0 1 -1;1 2 3];
+% B = [0 0 1]';
+% C = [1 0 -1];
 %% Retroalimentacion de estados
 
 cc = ctrb(A,B)
@@ -24,9 +23,9 @@ if rangoCC == length(A)
 else
     disp('No es controlable');
 end
-
-pcc = [-3 -2+2j -2-2j];
-K = acker(A,B,pcc)
+pcc = [-5 -3+i -3-i];   
+%pcc = [-9 -2+0.01i -2-0.01i];
+K = place(A,B,pcc)
 
 %% observabilidad
 oo = obsv(A,C);
@@ -40,7 +39,7 @@ else
 end
 
 %Calculo de Ke
-poo = 50*[-3 -2+2i -2-2i];
+poo = 3*pcc;
 Ke = acker(A',C',poo);
 Ke = Ke'
 
